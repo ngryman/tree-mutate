@@ -19,9 +19,11 @@
     "coverage": "nyc report --reporter=text-lcov | codecov",
     "see-coverage": "nyc report --reporter=html && open coverage/index.html",
     "check-coverage": "nyc check-coverage --lines 95 --functions 95 --branches 95",
-    "docs": "jsdoc2md *.js > docs/api.md && git add docs/api.md",
+    "docs": "jsdoc2md *.js > docs/api.md",
+    "postdocs": "git add docs/api.md",
     "prebuild": "npm run lint -s",
-    "build": "rollup --format cjs --input lib/index.js --output index.es5.js"
+    "build": "rollup --format cjs --input lib/index.js --output index.es5.js",
+    "postbuild": "git add index.es5.js"
   },
   "precommit": [
     "test",
