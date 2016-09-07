@@ -9,7 +9,8 @@
   "jsnext:main": "index.js",
   "files": [
     "index.js",
-    "index.es5.js"
+    "index.es5.js",
+    "lib/"
   ],
   "scripts": {
     "lint": "eslint {index,test/*}.js",
