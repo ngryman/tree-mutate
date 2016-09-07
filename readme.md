@@ -10,9 +10,9 @@
 [codecov-url]: https://codecov.io/github/ngryman/tree-mutate
 
 
-**tree-mutate** to apply either **homomorphisms** or **isomorphisms** to a tree. You can basically mutate nodes at a **data level** and at a **structural level**. In other words, you can easily create high-order functions such as **map** or **filter** that work well with your tree structure.
+**tree-mutate** allows you to apply either **homomorphisms** or **isomorphisms** to a tree. You can mutate nodes at a **data level** and at a **structural level**. In other words, `tree-mutate` lets you easily create high-order functions such as **map** or **filter** that work well with your tree structure.
 
-The `api` allow to specify **mutators**. Those mutators contain the logic adapted to your needs and your tree structure making **tree-mutate** versatile and agnostic.
+`tree-mutate` works around **mutators**. Those mutators contain logic to handle tree mutations. Depending on your needs and your tree structure, you can mutate your tree however you want, making `tree-mutate` a versatile and agnostic tree mutation library.
 
 
 ## Install
@@ -36,7 +36,7 @@ tree = mutate(tree, node => pick(node, 'type'))
 tree = mutate(tree, node => ('foo' === node.type ? node : null), remover)
 ```
 
-See [more examples](test/examples.mutable.js).
+See [more examples](test/examples.js).
 
 
 ## API
@@ -45,7 +45,7 @@ See the [api](docs/api.md) documentation.
 
 ## Related
 
- - [tree-mutate](https://github.com/ngryman/tree-mutate) Little brother of **tree-mutate**, but for **immutable** trees.
+ - [tree-morph](https://github.com/ngryman/tree-morph) Little brother of `tree-mutate`, but for **immutable** trees.
  - [tree-crawl](https://github.com/ngryman/tree-crawl) Generic tree traversal library. This module uses it.
 
 ## License

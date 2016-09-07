@@ -1,6 +1,6 @@
 import test from 'ava'
 import clone from 'clone'
-import morph from '../lib'
+import mutate from '../lib'
 import tree from './helpers/tree'
 import { noop, remove } from './helpers/functions'
 
@@ -10,7 +10,7 @@ test.beforeEach(t => {
 
 test('map', t => {
   function map(root, iteratee) {
-    return morph(root, iteratee, noop)
+    return mutate(root, iteratee, noop)
   }
 
   const tree = map(t.context.tree,
@@ -43,7 +43,7 @@ test('map', t => {
 
 test('pluck', t => {
   function pluck(root, key) {
-    return morph(root, node => {
+    return mutate(root, node => {
       Object.keys(node).forEach(k => {
         if ('children' !== k && k !== key) {
           delete node[k]
@@ -76,7 +76,7 @@ test('pluck', t => {
 
 test('filter', t => {
   function filter(root, predicate) {
-    return morph(root,
+    return mutate(root,
       node => predicate(node) ? node : null
     , remove)
   }

@@ -19,19 +19,19 @@ test('return the input tree', t => {
   t.is(tree, t.context.tree)
 })
 
-test('invoke node mutator on each node', t => {
-  const nodeMutator = spy()
-  mutate(t.context.tree, nodeMutator, noop)
-  t.is(nodeMutator.callCount, 6)
-  t.true(nodeMutator.calledWith(t.context.tree))
+test('invoke data mutator on each node', t => {
+  const dataMutator = spy()
+  mutate(t.context.tree, dataMutator, noop)
+  t.is(dataMutator.callCount, 6)
+  t.true(dataMutator.calledWith(t.context.tree))
 })
 
-test('return null if node mutator skips root', t => {
+test('return null if data mutator skips root', t => {
   const tree = mutate(t.context.tree, skipValue(1), noop)
   t.is(tree, null)
 })
 
-test('break traversal if node mutator skips root', t => {
+test('break traversal if data mutator skips root', t => {
   const mutator = spy(skipValue(1))
   mutate(t.context.tree, mutator, remove)
   t.is(mutator.callCount, 1)
@@ -43,13 +43,13 @@ test('invoke layout mutator on each node', t => {
   t.is(mutator.callCount, 6)
 })
 
-test('invoke "identity" mutation by default', t => {
+test('invoke "identity" layout mutation by default', t => {
   const mutator = spy()
   mutate(t.context.tree, identity, mutator)
   t.true(mutator.alwaysCalledWith('identity'))
 })
 
-test('invoke "remove" mutation when node mutator returns null', t => {
+test('invoke "remove" layout mutation when data mutator returns null', t => {
   const mutator = spy(remove)
   mutate(t.context.tree, skipValue(2), mutator)
   t.true(mutator.calls[1].calledWith('remove'))
@@ -66,10 +66,10 @@ test('return null if tree is undefined', t => {
   t.is(tree, null)
 })
 
-test('complain about missing node mutator', t => {
+test('complain about missing data mutator', t => {
   t.throws(
     () => mutate(t.context.tree, null, noop),
-    'nodeMutator is not a function'
+    'dataMutator is not a function'
   )
 })
 
