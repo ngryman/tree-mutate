@@ -13,7 +13,7 @@
     "lib/"
   ],
   "scripts": {
-    "lint": "eslint {index,test/*}.js",
+    "lint": "eslint index.js {lib/,test/}**/*.js",
     "pretest": "npm run lint -s",
     "test": "nyc ava",
     "dev": "npm run test -- --watch",
