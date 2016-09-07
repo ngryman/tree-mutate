@@ -1,6 +1,6 @@
 {
   "name": "tree-mutate",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Agnostic tree mutation library.",
   "author": "Nicolas Gryman <ngryman@gmail.com> (http://ngryman.sh/)",
   "license": "MIT",
