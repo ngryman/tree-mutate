@@ -5,11 +5,14 @@
   "author": "Nicolas Gryman <ngryman@gmail.com> (http://ngryman.sh/)",
   "license": "MIT",
   "repository": "ngryman/tree-mutate",
-  "main": "index.es5.js",
+  "main": "index.cjs",
   "jsnext:main": "index.js",
+  "engines": {
+    "node": ">=4"
+  },
   "files": [
     "index.js",
-    "index.es5.js",
+    "index.cjs",
     "lib/"
   ],
   "scripts": {
@@ -23,8 +26,8 @@
     "docs": "jsdoc2md *.js > docs/api.md",
     "postdocs": "git add docs/api.md",
     "prebuild": "npm run lint -s",
-    "build": "rollup --format cjs --input lib/index.js --output index.es5.js",
-    "postbuild": "git add index.es5.js"
+    "build": "rollup --format cjs --input index.js --output index.cjs",
+    "postbuild": "git add index.cjs"
   },
   "precommit": [
     "test",

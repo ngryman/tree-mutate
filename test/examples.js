@@ -1,6 +1,6 @@
 import test from 'ava'
 import clone from 'clone'
-import mutate from '../lib'
+import mutate from '../index'
 import tree from './helpers/tree'
 import { noop, remove } from './helpers/functions'
 
