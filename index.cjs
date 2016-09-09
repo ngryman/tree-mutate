@@ -44,7 +44,7 @@ var crawl = _interopDefault(require('tree-crawl'));
  * @return {Object} The mutated tree.
  */
 function mutate(root, dataMutator, layoutMutator) {
-  // Both mutators are mandatory
+  // both mutators are mandatory
   if ('function' !== typeof dataMutator) {
     throw new TypeError('dataMutator is not a function')
   }
@@ -53,14 +53,14 @@ function mutate(root, dataMutator, layoutMutator) {
   }
 
   crawl(root, (node, context) => {
-    // Mutate node data.
+    // mutate node data
     const ret = dataMutator(node, context)
 
-    // If the data mutator returned `null` then layout mutator will have to
+    // if the data mutator returned `null` then layout mutator will have to
     // remove the node from the tree.
     let layoutMutation = (null === ret ? 'remove' : 'identity')
 
-    // If a **remove** layout mutation is scheduled, the library adapts the
+    // if a **remove** layout mutation is scheduled, the library adapts the
     // walk behavior in consequence: root will simply break the walk, any other
     // node is marked as removed.
     if ('remove' === layoutMutation) {
@@ -74,7 +74,7 @@ function mutate(root, dataMutator, layoutMutator) {
       }
     }
 
-    // Mutate node layout.
+    // mutate node layout
     layoutMutator(layoutMutation, node, context.parent)
   })
 
