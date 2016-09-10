@@ -56,8 +56,8 @@ export default function mutate(root, dataMutator, layoutMutator) {
     // if `null` was returned then layout mutator will have to remove the node,
     // if a different node was returned the it will have to replace the node.
     let layoutMutation = (
-      null !== ret ?
-        ret === node ?
+      (null !== ret) ?
+        (undefined === ret || ret === node) ?
           'identity' :
           'replace' :
         'remove'
@@ -76,9 +76,18 @@ export default function mutate(root, dataMutator, layoutMutator) {
         context.remove()
       }
     }
+    else if ('replace' === layoutMutation) {
+      if (0 === context.depth) {
+        root = ret
+        layoutMutation = 'identity'
+      }
+
+      node = ret
+      context.replace(node)
+    }
 
     // mutate node layout
-    layoutMutator(layoutMutation, node, context.parent)
+    layoutMutator(layoutMutation, node, context.parent, context.index)
   })
 
   return root

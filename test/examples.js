@@ -2,7 +2,7 @@ import test from 'ava'
 import clone from 'clone'
 import mutate from '../index'
 import tree from './helpers/tree'
-import { noop, remove } from './helpers/functions'
+import { noop, layout } from './helpers/functions'
 
 test.beforeEach(t => {
   t.context.tree = clone(tree)
@@ -78,7 +78,7 @@ test('filter', t => {
   function filter(root, predicate) {
     return mutate(root,
       node => predicate(node) ? node : null
-    , remove)
+    , layout)
   }
 
   const tree = filter(t.context.tree, node => 'node' === node.type)
