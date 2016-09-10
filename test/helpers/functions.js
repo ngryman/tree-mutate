@@ -1,20 +1,24 @@
-function noop() {}
+import clone from 'clone'
 
-function identity(node) {
+export function noop() {}
+
+export function identity(node) {
   return node
 }
 
-function skipValue(value) {
+export function copy(node) {
+  return clone(node)
+}
+
+export function skipValue(value) {
   return function(node) {
     return (value !== node.value ? node : null)
   }
 }
 
-function remove(mutation, node, parentNode) {
+export function remove(mutation, node, parentNode) {
   if ('remove' === mutation) {
     const index = parentNode.children.indexOf(node)
     parentNode.children.splice(index, 1)
   }
 }
-
-module.exports = { noop, identity, skipValue, remove }

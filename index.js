@@ -23,6 +23,7 @@ import crawl from 'tree-crawl'
   * descendants nodes.
   *
   * @callback LayoutMutator
+  * @param {'identity'|'replace'|'remove'} node Type of layout mutation.
   * @param {Object|null} node Node to be mutated.
   * @param {Object} parentNode Parent of the node to be mutated.
   */
@@ -35,8 +36,8 @@ import crawl from 'tree-crawl'
  * - layout level: mutate node layout
  *
  * @param {Object} root Root node of the tree.
- * @param {Function} dataMutator Mutate node data.
- * @param {Function} layoutMutator Mutate node layout.
+ * @param {DataMutator} dataMutator Mutate node data.
+ * @param {LayoutMutator} layoutMutator Mutate node layout.
  * @return {Object} The mutated tree.
  */
 export default function mutate(root, dataMutator, layoutMutator) {
@@ -52,9 +53,15 @@ export default function mutate(root, dataMutator, layoutMutator) {
     // mutate node data
     const ret = dataMutator(node, context)
 
-    // if the data mutator returned `null` then layout mutator will have to
-    // remove the node from the tree.
-    let layoutMutation = (null === ret ? 'remove' : 'identity')
+    // if `null` was returned then layout mutator will have to remove the node,
+    // if a different node was returned the it will have to replace the node.
+    let layoutMutation = (
+      null !== ret ?
+        ret === node ?
+          'identity' :
+          'replace' :
+        'remove'
+    )
 
     // if a **remove** layout mutation is scheduled, the library adapts the
     // walk behavior in consequence: root will simply break the walk, any other

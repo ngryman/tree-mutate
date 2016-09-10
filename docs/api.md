@@ -49,6 +49,7 @@ descendants nodes.
 
 | Param | Type | Description |
 | --- | --- | --- |
+| node | <code>&#x27;identity&#x27;</code> &#124; <code>&#x27;replace&#x27;</code> &#124; <code>&#x27;remove&#x27;</code> | Type of layout mutation. |
 | node | <code>Object</code> &#124; <code>null</code> | Node to be mutated. |
 | parentNode | <code>Object</code> | Parent of the node to be mutated. |
 

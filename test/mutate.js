@@ -6,6 +6,7 @@ import tree from './helpers/tree'
 import {
   noop,
   identity,
+  copy,
   skipValue,
   remove
 } from './helpers/functions'
@@ -43,13 +44,19 @@ test('invoke layout mutator on each node', t => {
   t.is(mutator.callCount, 6)
 })
 
-test('invoke "identity" layout mutation by default', t => {
+test('set "identity" mutation by default', t => {
   const mutator = spy()
   mutate(t.context.tree, identity, mutator)
   t.true(mutator.alwaysCalledWith('identity'))
 })
 
-test('invoke "remove" layout mutation when data mutator returns null', t => {
+test('set "replace" mutation when data mutator returns a new node', t => {
+  const mutator = spy()
+  mutate(t.context.tree, copy, mutator)
+  t.true(mutator.alwaysCalledWith('replace'))
+})
+
+test('set "remove" mutation when data mutator returns null', t => {
   const mutator = spy(remove)
   mutate(t.context.tree, skipValue(2), mutator)
   t.true(mutator.calls[1].calledWith('remove'))
