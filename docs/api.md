@@ -1,3 +1,16 @@
+## Functions
+
+<dl>
+<dt><a href="#mutate">mutate(root, dataMutator, layoutMutator)</a> ⇒ <code>Object</code></dt>
+<dd><p>Walk over a <strong>mutable</strong> tree and invoke <strong>mutators</strong> on each node.</p>
+<p>Mutators implements mutations at 2 different levels:</p>
+<ul>
+<li>data level: mutate node data</li>
+<li>layout level: mutate node layout</li>
+</ul>
+</dd>
+</dl>
+
 ## Typedefs
 
 <dl>
@@ -16,6 +29,24 @@ modifies its structural properties and may alter ancestors, siblings or
 descendants nodes.</p>
 </dd>
 </dl>
+
+<a name="mutate"></a>
+
+## mutate(root, dataMutator, layoutMutator) ⇒ <code>Object</code>
+Walk over a **mutable** tree and invoke **mutators** on each node.
+
+Mutators implements mutations at 2 different levels:
+- data level: mutate node data
+- layout level: mutate node layout
+
+**Kind**: global function  
+**Returns**: <code>Object</code> - The mutated tree.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| root | <code>Object</code> | Root node of the tree. |
+| dataMutator | <code>[DataMutator](#DataMutator)</code> | Mutate node data. |
+| layoutMutator | <code>[LayoutMutator](#LayoutMutator)</code> | Mutate node layout. |
 
 <a name="DataMutator"></a>
 
