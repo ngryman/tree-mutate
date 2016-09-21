@@ -42,9 +42,10 @@ var crawl = _interopDefault(require('tree-crawl'));
  * @param {Object} root Root node of the tree.
  * @param {DataMutator} dataMutator Mutate node data.
  * @param {LayoutMutator} layoutMutator Mutate node layout.
+ * @param {'pre'|'post'} [order] Walk order.
  * @return {Object} The mutated tree.
  */
-function mutate(root, dataMutator, layoutMutator) {
+function mutate(root, dataMutator, layoutMutator, order) {
   // both mutators are mandatory
   if ('function' !== typeof dataMutator) {
     throw new TypeError('dataMutator is not a function')
@@ -92,7 +93,7 @@ function mutate(root, dataMutator, layoutMutator) {
 
     // mutate node layout
     layoutMutator(layoutMutation, node, context.parent, context.index)
-  })
+  }, { order: order || 'pre' })
 
   return root
 }

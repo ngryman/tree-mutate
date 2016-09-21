@@ -1,7 +1,7 @@
 ## Functions
 
 <dl>
-<dt><a href="#mutate">mutate(root, dataMutator, layoutMutator)</a> ⇒ <code>Object</code></dt>
+<dt><a href="#mutate">mutate(root, dataMutator, layoutMutator, [order])</a> ⇒ <code>Object</code></dt>
 <dd><p>Walk over a <strong>mutable</strong> tree and invoke <strong>mutators</strong> on each node.</p>
 <p>Mutators implements mutations at 2 different levels:</p>
 <ul>
@@ -32,7 +32,7 @@ descendants nodes.</p>
 
 <a name="mutate"></a>
 
-## mutate(root, dataMutator, layoutMutator) ⇒ <code>Object</code>
+## mutate(root, dataMutator, layoutMutator, [order]) ⇒ <code>Object</code>
 Walk over a **mutable** tree and invoke **mutators** on each node.
 
 Mutators implements mutations at 2 different levels:
@@ -47,6 +47,7 @@ Mutators implements mutations at 2 different levels:
 | root | <code>Object</code> | Root node of the tree. |
 | dataMutator | <code>[DataMutator](#DataMutator)</code> | Mutate node data. |
 | layoutMutator | <code>[LayoutMutator](#LayoutMutator)</code> | Mutate node layout. |
+| [order] | <code>&#x27;pre&#x27;</code> &#124; <code>&#x27;post&#x27;</code> | Walk order. |
 
 <a name="DataMutator"></a>
 
