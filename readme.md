@@ -1,6 +1,6 @@
 # tree-mutate
 
-> Agnostic tree mutation library.
+> n-ary tree mutation library.
 
 [![travis][travis-image]][travis-url] [![codecov][codecov-image]][codecov-url]
 
@@ -10,9 +10,10 @@
 [codecov-url]: https://codecov.io/github/ngryman/tree-mutate
 
 
-**tree-mutate** allows you to apply either **homomorphisms** or **isomorphisms** to a mutable tree. You can mutate nodes at a **data level** and at a **structural level**. In other words, `tree-mutate` lets you easily create high-order functions such as **map** or **filter** that work well with your tree structure.
+**tree-mutate** lets you mutate `n-ary` trees at both structural level and node level. You can apply both **homomorphisms** or **isomorphisms**. You can mutate node labels (value).
+In other words, `tree-mutate` lets you easily create high-order functions such as **map** or **filter** that work well with your specific tree structure.
 
-`tree-mutate` works around **mutators**. Those mutators contain logic to handle tree mutations. Depending on your needs and your tree structure, you can mutate your tree however you want, making `tree-mutate` a versatile and agnostic tree mutation library.
+`tree-mutate` works around **mutators**. Those mutators define logic to handle tree mutations. Depending on your needs and your tree structure, you can implement mutators to do whatever you want.
 
 
 ## Install
@@ -47,7 +48,7 @@ See the [api](docs/api.md) documentation.
 ## Related
 
  - [tree-morph](https://github.com/ngryman/tree-morph) Little brother of `tree-mutate`, but for **immutable** trees.
- - [tree-crawl](https://github.com/ngryman/tree-crawl) Generic tree traversal library. This module uses it.
+ - [tree-crawl](https://github.com/ngryman/tree-crawl) n-ary tree traversal library. This module uses it.
 
 
 ## License

@@ -231,3 +231,14 @@ test('complain about missing layout mutator', t => {
     'layoutMutator is not a function'
   )
 })
+
+test('hoisting', t => {
+  mutate(t.context.tree, (node, context) => {
+    if (2 === node.value) {
+      for (let i = node.children.length - 1; i >= 0; i--) {
+        context.parent.children.splice(context.index + 1, 0, node.children[i])
+      }
+      return null
+    }
+  }, layout, 'post')
+})
