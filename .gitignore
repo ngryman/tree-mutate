@@ -1,4 +1,5 @@
 # project
+dist/
 .nyc_output
 coverage
 .todo
