@@ -23,7 +23,7 @@ import crawl from 'tree-crawl'
   * descendants nodes.
   *
   * @callback LayoutMutator
-  * @param {'identity'|'replace'|'remove'} node Type of layout mutation.
+  * @param {'identity'|'replace'|'remove'} mutation Type of layout mutation.
   * @param {Object|null} node Node to be mutated.
   * @param {Object} parentNode Parent of the node to be mutated.
   */
