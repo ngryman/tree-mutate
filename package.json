@@ -83,7 +83,7 @@
     "instrument": false
   },
   "dependencies": {
-    "tree-crawl": "^1.0.0"
+    "tree-crawl": "^1.0.1"
   },
   "devDependencies": {
     "clone": "^2.1.0",
