@@ -1,5 +1,7 @@
 # tree-mutate
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/ngryman/tree-mutate.svg)](https://greenkeeper.io/)
+
 > n-ary tree mutation library.
 
 [![travis][travis-image]][travis-url] [![codecov][codecov-image]][codecov-url]
