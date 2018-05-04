@@ -12,4 +12,5 @@ notifications:
 node_js:
   - '6'
   - '5'
+  - '10'
 after_success: npm run coverage
